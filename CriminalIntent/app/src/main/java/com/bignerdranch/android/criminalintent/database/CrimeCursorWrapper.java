@@ -6,6 +6,9 @@ import android.database.CursorWrapper;
 import com.bignerdranch.android.criminalintent.Crime;
 import com.bignerdranch.android.criminalintent.database.CrimeDbSchema.CrimeTable;
 
+import java.util.Date;
+import java.util.UUID;
+
 /**
  * Created by Tyler Radabaugh on 3/8/2018.
  */
@@ -21,6 +24,11 @@ public class CrimeCursorWrapper extends CursorWrapper {
         long date = getLong(getColumnIndex(CrimeTable.Cols.DATE));
         int isSolved = getInt(getColumnIndex(CrimeTable.Cols.SOLVED));
 
-        return null;
+        Crime crime = new Crime(UUID.fromString(uuidString));
+        crime.setTitle(title);
+        crime.setDate(new Date(date));
+        crime.setSolved(isSolved != 0);
+
+        return crime;
     }
 }
