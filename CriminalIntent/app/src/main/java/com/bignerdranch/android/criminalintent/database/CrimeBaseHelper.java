@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.bignerdranch.android.criminalintent.database.CrimeDbSchema.CrimeTable;
+
 /**
  * Created by Tyler Radabaugh on 3/8/2018.
  */
@@ -18,7 +20,7 @@ public class CrimeBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        db.execSQL("CREATE TABLE " + CrimeTable.NAME);
     }
 
     @Override
