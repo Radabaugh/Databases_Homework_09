@@ -177,5 +177,10 @@ public class CrimeListFragment extends Fragment {
         public int getItemCount() {
             return mCrimes.size();
         }
+
+        @Override
+        public void setCrimes(List<Crime> crimes) {
+            mCrimes = crimes;
+        }
     }
 }
